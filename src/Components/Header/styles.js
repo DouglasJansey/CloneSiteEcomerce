@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
+
+
 const Color = {
     primary: '#7e1650',
     secondary: '#00ffff',
 }
 export const MenuSub = styled.div`
-display: flex;
+display: ${props => props.display ? 'block' : 'none' };
 flex-direction: column;
 width: auto;
 height: auto;
@@ -14,18 +16,12 @@ position: absolute;
 left: ${(props) => (props.positionX) + 'px'};
 top: 70px;
 z-index: 10;
-opacity: ${props => props.hide ? 1 : 0};
 li{
     margin-top: 5px;
     padding: 5px;
     list-style-type: none;
 }
-    :hover{
-        ${List}{
-            background-color: ${props => props.color ? 'white' : undefined};
-
-        }
-    }
+    
 `;
 
 export const Container = styled.div`
@@ -59,30 +55,24 @@ export const ContainerSearch = styled.div`
 export const Nav = styled.nav`
 display: flex;
 align-items: center;
-margin-left: 50px;
+justify-content:space-between;
 height: 150%;
 `;
-export const List = styled.li`
+export const List = styled.ul`
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-
-    :hover{
+    :hover {
         background-color: ${props => props.color ? 'white' : undefined};
-            a{
-                color: ${Color.primary};
-            }
-    }
+        a{
+        text-decoration: none;
+        color: ${Color.primary};                  
+        }
+    } 
 `;
 export const A = styled.a`
-    margin: 15px ;
-    text-decoration: none;
-    color: white;
-    :hover{
-        color: ${Color.primary};
-                       
-    }
+   color: white ;
 `;
 export const SearchInput = styled.input`
     width: 100%;
